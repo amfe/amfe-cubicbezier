@@ -1,7 +1,7 @@
 {
     "name": "lib.cubicbezier",
-    "description": "a helloworld",
-    "version": "0.9.0",
+    "description": "贝塞尔曲线函数",
+    "version": "1.0.0",
     "homepage": "http://gitlab.alibaba-inc.com/mtb/lib-cubicbezier",
     "author": {
         "name": "hanquan.csf",
@@ -21,14 +21,14 @@
         "node": ">= 0.8.0"
     },
     "devDependencies": {
-        "grunt": "~0.4.1",
-        "grunt-depconcat": "~0.2.0",
-        "grunt-depcombo": "~0.1.0",
+        "grunt": "0.4.x",
+        "grunt-cmdwrap": "^0.1.2",
+        "grunt-contrib-clean": "~0.5.0",
         "grunt-contrib-copy": "~0.4.1",
-        
-        "grunt-contrib-uglify": "~0.2.0",
-        "grunt-contrib-watch": "~0.4.0",
-        "grunt-contrib-clean": "~0.5.0"
+        "grunt-contrib-uglify": "~0.2.2",
+        "grunt-contrib-watch": "~0.6.1",
+        "grunt-depcombo": "^0.2.3",
+        "grunt-depconcat": "~0.2.0"
     },
     "dependencies": {},
     "combo": {

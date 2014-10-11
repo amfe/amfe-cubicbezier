@@ -1,17 +1,20 @@
 'use strict';
 
-module.exports = function(grunt) {
-    grunt.initConfig({
+module.exports = function (grunt) {
+    // Project configuration.
+    var path = require('path');
+
+    grunt.config.init({
         pkg: grunt.file.readJSON('package.json'),
-        name: 'cubicbezier',
-        srcPath: 'src',
         assetsPath: 'assets',
+        srcPath: 'src',
+        libPath: 'lib',
         distPath: 'build',
 
-        clean: ['<%= distPath %>/*'],
-
-        copy: {
-            main: {
+        clean: ['<%= distPath%>/*'],
+        
+        copy : {
+            package: {
                 files: [{
                     expand: true,
                     cwd: './',
@@ -22,45 +25,24 @@ module.exports = function(grunt) {
         },
 
         depconcat: {
-            options: {
-                separator: '\n'
-            },
-
             main: {
-                src: ['<%= srcPath %>/<%= name %>.js'],
-                dest: '<%= distPath %>/<%= name %>.debug.js'
+                src: ['<%= srcPath%>/cubicbezier.js'],
+                dest: '<%= distPath%>/cubicbezier.debug.js'
             }
         },
 
         uglify: {
-            main: {
+            main:{
                 files: [{
                     expand: true,
-                    cwd: '<%= distPath %>',
-                    src: ['*.debug.js'],
+                    cwd: '<%= distPath%>',
+                    src: ['**/*.debug.js'],
                     dest: '<%= distPath %>',
                     ext: '.js'
                 }]
             }
         },
-
-
-
-        watch: {
-            combo: {
-                files: ['package.json'],
-                tasks: ['copy', 'depcombo']
-            }
-
-            ,
-            js: {
-                files: ['<%= srcPath %>/*.js', '<%= srcPath %>/**/*.js'],
-                tasks: ['depconcat', 'uglify', 'depcombo']
-            }
-
-
-        },
-
+        
         depcombo: {
             debug: {
                 options: {
@@ -70,27 +52,49 @@ module.exports = function(grunt) {
                 },
                 dest: '<%= distPath%>/combo.debug.js'
             },
-
             main: {
                 options: {
-                    output: 'file'
+                  output: 'file'
                 },
                 dest: '<%= distPath%>/combo.js'
+            }
+        },
+
+        watch: {
+            combo: {
+                files: ['package.json'],
+                tasks: ['depcombo']
+            },
+
+            js: {
+                files: ['<%= srcPath %>/*.js'],
+                tasks: ['depconcat', 'uglify', 'depcombo']
+            }
+        },
+
+        cmdwrap: {
+            js: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= distPath %>',
+                    src: ['cubicbezier.js'],
+                    dest: '<%= distPath %>',
+                    ext: '.cmd.js'
+                }]
             }
         }
     });
 
+    // grunt plugins
     grunt.loadNpmTasks('grunt-depconcat');
     grunt.loadNpmTasks('grunt-depcombo');
+    grunt.loadNpmTasks('grunt-cmdwrap');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-
-    grunt.registerTask('dist', ['copy', 'depconcat', 'uglify', 'depcombo']);
-    grunt.registerTask('dev', ['watch']);
-
-    grunt.registerTask('default', ['dist']);
-}
+    // Default grunt
+    grunt.registerTask('default', ['clean', 'copy','depconcat','uglify', 'depcombo', 'cmdwrap']);
+    grunt.registerTask('dev', ['clean', 'depconcat', 'uglify', 'depcombo', 'watch']);
+};

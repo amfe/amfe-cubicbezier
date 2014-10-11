@@ -1,1 +1,0 @@
-document.write('<scr' + 'ipt id="combo_url_main" type="text/javascript" src="build/cubicbezier.debug.js"></scr' + 'ipt>')

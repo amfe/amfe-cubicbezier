@@ -1,7 +1,6 @@
-;
-(function(win, lib) {
+;(function(win, lib) {
 
-    lib.cubicbezier = function cubicBezierFunction(p1x, p1y, p2x, p2y) {
+    function cubicBezierFunction(p1x, p1y, p2x, p2y) {
         var ZERO_LIMIT = 1e-6;
         // Calculate the polynomial coefficients,
         // implicit first and last control points are (0,0) and (1,1).
@@ -78,5 +77,12 @@
 
         return solve;
     }
+
+    lib.cubicbezier = cubicBezierFunction;
+    lib.cubicbezier.liner = cubicBezierFunction(0,0,1,1);
+    lib.cubicbezier.ease = cubicBezierFunction(.25,.1,.25,1);
+    lib.cubicbezier.easeIn = cubicBezierFunction(.42,0,1,1);
+    lib.cubicbezier.easeOut = cubicBezierFunction(0,0,.58,1);
+    lib.cubicbezier.easeInOut = cubicBezierFunction(.42,0,.58,1);
 
 })(window, window['lib'] || (window['lib'] = {}));
