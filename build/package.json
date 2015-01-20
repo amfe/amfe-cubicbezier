@@ -1,7 +1,7 @@
 {
     "name": "lib.cubicbezier",
     "description": "贝塞尔曲线函数",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homepage": "http://gitlab.alibaba-inc.com/mtb/lib-cubicbezier",
     "author": {
         "name": "hanquan.csf",

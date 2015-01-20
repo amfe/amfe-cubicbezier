@@ -79,7 +79,7 @@
     }
 
     lib.cubicbezier = cubicBezierFunction;
-    lib.cubicbezier.liner = cubicBezierFunction(0,0,1,1);
+    lib.cubicbezier.linear = cubicBezierFunction(0,0,1,1);
     lib.cubicbezier.ease = cubicBezierFunction(.25,.1,.25,1);
     lib.cubicbezier.easeIn = cubicBezierFunction(.42,0,1,1);
     lib.cubicbezier.easeOut = cubicBezierFunction(0,0,.58,1);

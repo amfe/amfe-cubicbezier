@@ -28,7 +28,7 @@
                 <input type="text" class="form-control" id="cp" value=".25,.1,.25,1" placeholder="输入控制点">
               </div>
               <button class="btn btn-primary" data-value="">绘制</button>
-              <button class="btn btn-info" data-value="liner">绘制Liner</button>
+              <button class="btn btn-info" data-value="linear">绘制Linear</button>
               <button class="btn btn-info" data-value="ease">绘制Ease</button>
               <button class="btn btn-info" data-value="easeIn">绘制EaseIn</button>
               <button class="btn btn-info" data-value="easeOut">绘制EaseOut</button>
@@ -52,7 +52,7 @@
             var v = el.getAttribute('data-value');
             var cpEl = document.querySelector('#cp');
             switch(v) {
-                case 'liner':
+                case 'linear':
                     cpEl.value = '0,0,1,1';
                     break;
                 case 'ease':
