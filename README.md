@@ -4,7 +4,7 @@
 
 ## 最新版本
 
-**1.0.1**
+**1.0.2**
 
 ## 依赖库
 
@@ -26,3 +26,7 @@
     );
 
     bezier(0.5) // 0.8024033876954125
+
+## [APIs](http://gitlab.alibaba-inc.com/mtb/lib-cubicbezier/raw/master/api/index.html)
+
+## [changelog](http://gitlab.alibaba-inc.com/mtb/lib-cubicbezier/blob/master/CHANGELOG.md)

@@ -1,0 +1,25 @@
+{
+  "name": "lib.cubicbezier",
+  "authors": [
+    "zhuxun.jb <zhuxun.jb@taobao.com>"
+  ],
+  "main": "build/animation.js",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alibaba-inc.com:mtb/lib-cubicbezier.git"
+  },
+  "keywords": [
+    "cubicbezier",
+    "lib"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/*",
+    "*",
+    "!build/*",
+    "!README.md"
+  ],
+  "devDependencies": {
+    "docs-template": "git@gitlab.alibaba-inc.com:h5-interaction/docs-template.git#master"
+  }
+}
