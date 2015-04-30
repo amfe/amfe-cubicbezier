@@ -3,7 +3,7 @@
   "authors": [
     "zhuxun.jb <zhuxun.jb@taobao.com>"
   ],
-  "main": "build/animation.js",
+  "main": "build/cubicbezier.js",
   "repository": {
     "type": "git",
     "url": "git@gitlab.alibaba-inc.com:mtb/lib-cubicbezier.git"
