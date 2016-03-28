@@ -1,32 +1,22 @@
-#lib.cubicbezier
+# amfe-cubicbezier
 
-贝塞尔曲线函数。
+![npm version](http://img.shields.io/npm/v/amfe-cubicbezier.svg)
+![ci status](https://api.travis-ci.org/amfe/amfe-cubicbezier.svg?branch=master)
 
-## 最新版本
+Generate a quadratic function with four control points of cubic-bezier
 
-**1.0.3**
+## [Visiting Site](http://amfe.github.io/amfe-cubicbezier/)
 
-## 依赖库
+## [Discuss & Issues](https://github.com/amfe/amfe-cubicbezier/issues)
 
-无
+## License
 
-## 用Grunt打包
+(The MIT License)
 
-运行 `npm install`，来安装所需的依赖模块。关于NPM的知识，请参见[nodejs](http://nodejs.org/);
+Copyright (c) 2016 Alibaba MFE
 
-运行 `grunt`，来对项目进行打包。关于Grunt的知识，请参见[gruntjs](http://gruntjs.com/);
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-## 如何使用
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-    var bezier = new lib.cubicbezier(
-        .25, // 控制点x1
-        .1,  // 控制点y1
-        .25, // 控制点x2
-        1    // 控制点y2
-    );
-
-    bezier(0.5) // 0.8024033876954125
-
-## [APIs](http://gitlab.alibaba-inc.com/mtb/lib-cubicbezier/raw/master/api/index.html)
-
-## [changelog](http://gitlab.alibaba-inc.com/mtb/lib-cubicbezier/blob/master/CHANGELOG.md)
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
