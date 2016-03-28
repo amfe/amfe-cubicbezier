@@ -3,12 +3,112 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="bootstrap.css" rel="stylesheet" />
+<script src="jquery.js"></script>
+<script src="bootstrap.js"></script>
 <script src="bundle.js"></script>
+<style>
+    .container {
+        margin-bottom: 10px;
+    }
+</style>
 </head>
 <body>
+<section class="jumbotron">
+    <div class="container">
+        <h1 class="center">amfe-cubicbezier</h1>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+              <div class="form-group">
+                <label for="cp">The control points</label>
+                <input type="text" class="form-control" id="cp" value=".25,.1,.25,1" placeholder="Please input the two pairs of control points">
+              </div>
+              <button class="btn btn-primary" data-value="">render</button>
+              <button class="btn btn-info" data-value="linear">render Linear</button>
+              <button class="btn btn-info" data-value="ease">render Ease</button>
+              <button class="btn btn-info" data-value="easeIn">render EaseIn</button>
+              <button class="btn btn-info" data-value="easeOut">render EaseOut</button>
+              <button class="btn btn-info" data-value="easeInOut">render EaseInOut</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <p>The red line is drawn by bezierCurveTo() from canvas api. The green points are drawn according to the x, y from the quadratic function.</p>
+            <canvas width="300" height="300" style="margin:20px auto; border:1px solid #666; background-color:#EEE;"></canvas>
+        </div>
+    </div>
+</div>
 <script>
-var TestLib1 = require('amfe-cubicbezier');
-document.write('<h1>amfe-cubicbezier <b>' + TestLib1.version + '</b></h1>');
+var cubicbezier = require('amfe-cubicbezier');
+
+document.addEventListener('click', function(e){
+    var el = e.target;
+    if (el.className.indexOf('btn') > -1) {
+        var v = el.getAttribute('data-value');
+        var cpEl = document.querySelector('#cp');
+        switch(v) {
+            case 'linear':
+                cpEl.value = '0,0,1,1';
+                break;
+            case 'ease':
+                cpEl.value = '.25,.1,.25,1';
+                break;
+            case 'easeIn':
+                cpEl.value = '.42,0,1,1';
+                break;
+            case 'easeOut':
+                cpEl.value = '0,0,.58,1';
+                break;
+            case 'easeInOut':
+                cpEl.value = '.42,0,.58,1';
+                break;
+            default:
+                break;
+        }
+        make();
+    }
+}, false);
+
+function make() {
+    var canvas = document.querySelector('canvas');
+    var cp = document.querySelector('#cp').value;
+    var ctx = canvas.getContext('2d');
+
+    cp && (cp = cp.split(','));
+
+    if (cp && cp.length === 4) {
+        cp = cp.map(function(i) {
+            return parseFloat(i);
+        });
+
+        ctx.clearRect(0,0,300,300);
+
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.bezierCurveTo(300 * cp[0], 300 * cp[1], 300 * cp[2], 300 * cp[3], 300, 300);
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = 'red';
+        ctx.stroke();
+        ctx.closePath();
+
+        var bezier = cubicbezier.generate(cp[0], cp[1], cp[2], cp[3]);
+        for (var i = 0; i <= 300; i+= 10) {
+            ctx.beginPath();
+            var x = i;
+            var y = bezier(i / 300) * 300;
+            ctx.moveTo(x, y);
+            ctx.arc(x, y, 3, 0, 2 * Math.PI);
+            ctx.fillStyle = 'green';
+            ctx.fill();
+            ctx.closePath();
+        }
+    }
+}
 </script>
 </body>
 </html>

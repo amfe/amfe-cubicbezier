@@ -3,7 +3,7 @@
 ![npm version](http://img.shields.io/npm/v/amfe-cubicbezier.svg)
 ![ci status](https://api.travis-ci.org/amfe/amfe-cubicbezier.svg?branch=master)
 
-project description
+Generate a quadratic function with four control points of cubic-bezier
 
 ## [Visiting Site](http://amfe.github.io/amfe-cubicbezier/)
 

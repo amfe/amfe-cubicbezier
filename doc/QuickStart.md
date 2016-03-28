@@ -9,13 +9,24 @@ tnpm install amfe-cubicbezier --save
 ## Usage
 
 ```javascript
-import SomeModule from 'amfe-cubicbezier'
+import * as cubicbezier from 'amfe-cubicbezier';
 ```
 
 ## Samples
 
-Initializing:
+Generate a function:
 
 ```javascript
-new SomeModule()
+import {generate} from 'amfe-cubicbezier';
+
+var bounceIn = generate(.42, 0, .5, 1.5);
+```
+
+Use default functions:
+
+```javascript
+import {ease} from 'amfe-cubicbezier';
+
+var x = 0.5;
+var y = ease(x);
 ```

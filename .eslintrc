@@ -63,10 +63,10 @@
     "arrow-body-style": [2, "as-needed"], // require braces in arrow function body
     "no-confusing-arrow": 2, // disallow arrow functions where they could be confused with comparisons
     "object-shorthand": 2, // require method and property shorthand syntax for object literals
-    "prefer-arrow-callback": 0, // suggest using arrow functions as callbacks
-    "prefer-const": 0, // suggest using const declaration for variables that are never modified after declared
-    "prefer-spread": 0, // suggest using the spread operator instead of .apply()
-    "prefer-template": 0, // suggest using template literals instead of strings concatenation
+    "prefer-arrow-callback": 2, // suggest using arrow functions as callbacks
+    "prefer-const": 2, // suggest using const declaration for variables that are never modified after declared
+    "prefer-spread": 2, // suggest using the spread operator instead of .apply()
+    "prefer-template": 2, // suggest using template literals instead of strings concatenation
     "brace-style": [2, "1tbs"], // enforce one true brace style
     "camelcase": [2, {"properties": "always"}], // enforce one true brace style
     "no-array-constructor": 2, // disallow use of the Array constructor

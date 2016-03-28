@@ -1,33 +1,62 @@
 # The API
 
 ```javascript
-import Module from 'amfe-cubicbezier';
+import {generate, linear, ease, easeIn, easeOut, easeInOut} from 'amfe-cubicbezier';
 ```
 
-## Constrcutor
+## generate(x1, y1, x2, y2)
 
-### new Class(v)
-
-create a object
+return a quadratic function.
 
 ```jsdoc
-@param {string} v - a version
+@param {number} the x of first control point
+@param {number} the y of first control point
+@param {number} the x of second control point
+@param {number} the y of second control point
+@return {function} a quadratic function
 ```
 
-## Methods
+## linear(x)
 
-## getVersion()
-
-return a version
+a default quadratic function with `0, 0, 1, 1` control points.
 
 ```jsdoc
-@return {string} a version
+@param {number} the x
+@return {number} the y
 ```
 
-## Properties
+## ease(x)
 
-...
+a default quadratic function with `.25, .1, .25, 1` control points.
 
-## Class Methods
+```jsdoc
+@param {number} the x
+@return {number} the y
+```
 
-...
+## easeIn(x)
+
+a default quadratic function with `.42, 0, 1, 1` control points.
+
+```jsdoc
+@param {number} the x
+@return {number} the y
+```
+
+## easeOut(x)
+
+a default quadratic function with `0, 0, .58, 1` control points.
+
+```jsdoc
+@param {number} the x
+@return {number} the y
+```
+
+## easeInOut(x)
+
+a default quadratic function with `.42, 0, .58, 1` control points.
+
+```jsdoc
+@param {number} the x
+@return {number} the y
+```

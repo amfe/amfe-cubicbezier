@@ -1,7 +1,7 @@
 {
   "name": "amfe-cubicbezier",
-  "description": "project description",
-  "version": "0.1.0",
+  "description": "Generate a quadratic function with four control points of cubic-bezier",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:amfe/amfe-cubicbezier.git"
